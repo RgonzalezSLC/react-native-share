@@ -189,7 +189,7 @@ public abstract class ShareIntent {
                 this.getIntent().putExtra(Intent.EXTRA_STREAM, uriFile);
                 this.getIntent().addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 if (!TextUtils.isEmpty(message)) {
-                    this.getIntent().putExtra(Intent.EXTRA_TEXT, message);
+                    this.getIntent().putExtra(Intent.EXTRA_TEXT, "message : " + message + " filetype: " + this.fileShare.getType());
                 }
             } else {
                 if (!TextUtils.isEmpty(message)) {
