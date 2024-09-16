@@ -49,7 +49,7 @@ public abstract class ShareIntent {
     public ShareIntent(ReactApplicationContext reactContext) {
         this.reactContext = reactContext;
         this.setIntent(new Intent(android.content.Intent.ACTION_SEND));
-        this.getIntent().setType("text/plain");
+        this.getIntent().setType("image/png");
     }
 
     public Intent excludeChooserIntent(Intent prototype, ReadableMap options) {
@@ -170,7 +170,7 @@ public abstract class ShareIntent {
                 this.getIntent().putParcelableArrayListExtra(Intent.EXTRA_STREAM, uriFile);
                 this.getIntent().addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 if (!TextUtils.isEmpty(message)) {
-                    this.getIntent().putExtra(Intent.EXTRA_TEXT, message);
+                    this.getIntent().putExtra(Intent.EXTRA_TEXT, message + fileShare.getType());
                 }
             } else {
                 if (!TextUtils.isEmpty(message)) {
